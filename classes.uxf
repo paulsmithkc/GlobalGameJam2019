@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>800</x>
+      <y>350</y>
+      <w>360</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>/Person/
+--
+- _name : String
+- _description : String
+- _image : int
+- _favor : int
+- _locations : Map&lt;String, float&gt;
+- _availableInteractions : List&lt;Interaction&gt;
+--
++ getName() : String
++ ...
++ adjustFavor(adjustment : int)
++ getProbabilityForLocation(locationId : String) : float
++ getAvailableInteractions() : List&lt;Interaction&gt;
+
+/+ startInteracting(game : Game)/
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>800</x>
+      <y>80</y>
+      <w>360</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>Location
+--
+- _id : String
+- _name : String
+- _description : String
+- _image : int
+- _people : List&lt;Person&gt;
+--
++ getId() : String
++ ...
++ randomizePeople(people : List&lt;Person&gt;)
++ addPerson(person : Person)
++ removePerson(person : Person)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>90</x>
+      <y>80</y>
+      <w>380</w>
+      <h>480</h>
+    </coordinates>
+    <panel_attributes>Game
+--
+- _applicationContext : Context
+- _startTime : long
+- _timeElapsed : long
+- _age : int
+- _lifeStage : LifeStage
+- _words : List&lt;String&gt;
+- _skills : Map&lt;string, int&gt;
+- _locations : List&lt;Location&gt;
+- _people : List&lt;Person&gt;
+
+--
++ Game(applicationContext : Context, startTime : long)
++ getStartTime() : long
+*+ setTimeElapsed(time : long) : long*
+
++ getAge() : int
++ getLifeStage() : LifeStage
++ getWords() : List&lt;String&gt;
++ hasWord(word : String) : boolean
++ addWord(word : String)
++ getSkill(skill : String) : int
++ increaseSkill(skill : String, value : int)
++ getLocations() : List&lt;Location&gt;
++ getPeople() : List&lt;Person&gt;
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>510</x>
+      <y>80</y>
+      <w>250</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+LifeStage
+--
+INFANT(0)
+CHILD(6)
+TEEN(12)
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>800</x>
+      <y>640</y>
+      <w>360</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>/Interaction/
+--
+- _location : Location
+- _person : Person
+- _name : String
+- _lines : String[]
+
+--
+/+ isAvailable(game : Game)/
+/+ say(game : Game, phrase : String)/</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
